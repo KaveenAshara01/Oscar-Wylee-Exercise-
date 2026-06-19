@@ -16,11 +16,11 @@ function ProductGallery({ images, productName }) {
   return (
     <section className="product-gallery" aria-label={`${productName} product images`}>
       <div className="image-stage">
-        <button className="gallery-arrow gallery-arrow-left" onClick={showPreviousImage} aria-label="View previous product image">
+        <button className="gallery-arrow gallery-arrow-left" type="button" onClick={showPreviousImage} aria-label="View previous product image">
           <ChevronLeft size={30} strokeWidth={1.8} />
         </button>
         <img src={activeImage.src} alt={activeImage.alt} />
-        <button className="gallery-arrow gallery-arrow-right" onClick={showNextImage} aria-label="View next product image">
+        <button className="gallery-arrow gallery-arrow-right" type="button" onClick={showNextImage} aria-label="View next product image">
           <ChevronRight size={30} strokeWidth={1.8} />
         </button>
       </div>
@@ -29,6 +29,7 @@ function ProductGallery({ images, productName }) {
           {images.map((image, index) => (
             <button
               className={index === activeIndex ? 'active' : undefined}
+              type="button"
               key={image.alt}
               onClick={() => setActiveIndex(index)}
               aria-label={`View product image ${index + 1}`}
@@ -36,7 +37,7 @@ function ProductGallery({ images, productName }) {
             />
           ))}
         </div>
-        <button className="zoom-button">
+        <button className="zoom-button" type="button">
           Zoom
           <Search size={23} strokeWidth={1.8} />
         </button>

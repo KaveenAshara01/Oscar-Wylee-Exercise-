@@ -10,6 +10,7 @@ function ProductDetails({ product }) {
         {product.swatches.map((swatch) => (
           <button
             className={swatch.name === product.color ? 'selected' : undefined}
+            type="button"
             key={swatch.name}
             style={{ '--swatch': swatch.value }}
             aria-label={swatch.name}
@@ -28,8 +29,8 @@ function ProductDetails({ product }) {
         </span>
       </div>
       <div className="purchase-actions">
-        <button className="primary-button">Prescription</button>
-        <button className="secondary-button">Book an eye test</button>
+        <button className="primary-button" type="button">Prescription</button>
+        <button className="secondary-button" type="button">Book an eye test</button>
       </div>
     </aside>
   );

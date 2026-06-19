@@ -31,7 +31,24 @@ textarea {
 }
 
 button {
+  cursor: pointer;
   border-radius: 0;
+}
+
+a {
+  cursor: pointer;
+}
+
+button:active,
+a:active {
+  transform: translateY(1px);
+}
+
+.brand:active,
+.desktop-nav a:active,
+.gallery-dots button:active,
+.swatches button:active {
+  transform: none;
 }
 
 .site-header {
