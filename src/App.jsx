@@ -1,5 +1,7 @@
+import ProductPage from './components/ProductPage.jsx';
+
 function App() {
-  return <main className="page-shell">Oscar Wylee product page</main>;
+  return <ProductPage />;
 }
 
 export default App;
