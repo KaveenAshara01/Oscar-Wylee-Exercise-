@@ -1,7 +1,6 @@
 function ProductDetails({ product }) {
   return (
     <aside className="product-details">
-      <div className="mobile-product-name">{product.name}</div>
       <div className="offer-block">
         <p>{product.offer}</p>
         <span>{product.offerNote}</span>
