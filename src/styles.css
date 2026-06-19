@@ -33,10 +33,23 @@ textarea {
 button {
   cursor: pointer;
   border-radius: 0;
+  color: inherit;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 a {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button svg,
+a svg {
+  color: currentColor;
 }
 
 button:active,
@@ -304,10 +317,23 @@ a:active {
   border: 0;
   border-radius: 7px;
   background: #f6f5f1;
+  color: #080808;
   padding: 0 13px 0 17px;
   font-size: 18px;
   font-weight: 800;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+
+.menu-button,
+.zoom-button {
+  color: #080808 !important;
+  -webkit-text-fill-color: #080808;
+}
+
+.menu-button svg,
+.zoom-button svg {
+  color: #080808 !important;
+  stroke: #080808 !important;
 }
 
 .product-details {
@@ -544,6 +570,7 @@ a:active {
   .menu-button {
     display: inline-flex;
     justify-self: start;
+    color: #080808 !important;
   }
 
   .desktop-nav,
@@ -644,6 +671,7 @@ a:active {
     border: 1px solid #111111;
     border-radius: 7px;
     background: #ffffff;
+    color: #080808 !important;
     padding: 0 9px 0 12px;
     font-size: 14px;
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.16);
