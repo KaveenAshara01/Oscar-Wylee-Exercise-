@@ -1,15 +1,39 @@
-import { Search } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
+import { useState } from 'react';
 
 function ProductGallery({ images, productName }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeImage = images[activeIndex];
+
+  const showPreviousImage = () => {
+    setActiveIndex((currentIndex) => (currentIndex === 0 ? images.length - 1 : currentIndex - 1));
+  };
+
+  const showNextImage = () => {
+    setActiveIndex((currentIndex) => (currentIndex === images.length - 1 ? 0 : currentIndex + 1));
+  };
+
   return (
     <section className="product-gallery" aria-label={`${productName} product images`}>
       <div className="image-stage">
-        <img src={images[0].src} alt={images[0].alt} />
+        <button className="gallery-arrow gallery-arrow-left" onClick={showPreviousImage} aria-label="View previous product image">
+          <ChevronLeft size={30} strokeWidth={1.8} />
+        </button>
+        <img src={activeImage.src} alt={activeImage.alt} />
+        <button className="gallery-arrow gallery-arrow-right" onClick={showNextImage} aria-label="View next product image">
+          <ChevronRight size={30} strokeWidth={1.8} />
+        </button>
       </div>
       <div className="gallery-controls">
         <div className="gallery-dots" aria-label="Product image carousel position">
-          {images.slice(0, 5).map((image, index) => (
-            <span className={index === 0 ? 'active' : undefined} key={image.alt} />
+          {images.map((image, index) => (
+            <button
+              className={index === activeIndex ? 'active' : undefined}
+              key={image.alt}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`View product image ${index + 1}`}
+              aria-current={index === activeIndex}
+            />
           ))}
         </div>
         <button className="zoom-button">
