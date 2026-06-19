@@ -29,7 +29,7 @@ export const product = {
   ],
   swatches: [
     { name: 'Black', value: '#030303' },
-    { name: 'Tabby Tortoise', value: 'radial-gradient(circle at 35% 35%, #120301 0 24%, #80230e 25% 45%, #170503 46% 72%, #b35b24 73% 100%)' },
+    { name: 'Tabby Tortoise', value: 'linear-gradient(135deg, #1b0804 0 24%, #9b3f18 25% 39%, #2b0b05 40% 58%, #c27635 59% 72%, #170704 73% 100%)' },
     { name: 'Blush', value: '#f6ded6' },
     { name: 'Clear Crystal', value: '#efefec' },
     { name: 'Sky Crystal', value: '#d8f5ff' },

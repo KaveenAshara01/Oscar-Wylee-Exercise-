@@ -1,17 +1,35 @@
 import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function ProductGallery({ images, productName }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeImage = images[activeIndex];
 
-  const showPreviousImage = () => {
+  const showPreviousImage = useCallback(() => {
     setActiveIndex((currentIndex) => (currentIndex === 0 ? images.length - 1 : currentIndex - 1));
-  };
+  }, [images.length]);
 
-  const showNextImage = () => {
+  const showNextImage = useCallback(() => {
     setActiveIndex((currentIndex) => (currentIndex === images.length - 1 ? 0 : currentIndex + 1));
-  };
+  }, [images.length]);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowLeft') {
+        showPreviousImage();
+      }
+
+      if (event.key === 'ArrowRight') {
+        showNextImage();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [showNextImage, showPreviousImage]);
 
   return (
     <section className="product-gallery" aria-label={`${productName} product images`}>

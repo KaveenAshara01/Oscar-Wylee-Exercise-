@@ -46,6 +46,7 @@ a:active {
 
 .brand:active,
 .desktop-nav a:active,
+.gallery-arrow:active,
 .gallery-dots button:active,
 .swatches button:active {
   transform: none;
@@ -258,6 +259,16 @@ a:active {
   right: 0;
 }
 
+.gallery-arrow:hover,
+.gallery-arrow:focus-visible {
+  border-color: #111111;
+  background: #ffffff;
+}
+
+.gallery-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
 .gallery-controls {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -294,7 +305,7 @@ a:active {
   border-radius: 7px;
   background: #f6f5f1;
   padding: 0 13px 0 17px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
@@ -339,6 +350,7 @@ a:active {
   border: 1px solid #d8d8d8;
   border-radius: 50%;
   background: #ffffff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
 .swatches button::after {
@@ -352,7 +364,11 @@ a:active {
 
 .swatches button.selected {
   border-color: #0a0a0a;
-  box-shadow: inset 0 0 0 3px #ffffff;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 3px #0a0a0a;
+}
+
+.swatches button.selected::after {
+  inset: 7px;
 }
 
 .selected-color {
@@ -369,7 +385,7 @@ a:active {
 
 .price-panel p {
   margin: 0 0 12px;
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 800;
 }
 
@@ -674,7 +690,7 @@ a:active {
 
   .price-panel p {
     margin-bottom: 11px;
-    font-size: 23px;
+    font-size: 21px;
   }
 
   .purchase-actions {
