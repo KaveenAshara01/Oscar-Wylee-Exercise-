@@ -7,7 +7,9 @@ const preventNavigation = (event) => event.preventDefault();
 function Header() {
   return (
     <header className="site-header">
-      <div className="mobile-booking">Book an eye test</div>
+      <div className="mobile-booking">
+        <button type="button">Book an eye test</button>
+      </div>
       <div className="header-bar">
         <button className="icon-button menu-button" type="button" aria-label="Open menu">
           <Menu size={22} strokeWidth={1.7} />
